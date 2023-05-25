@@ -1,0 +1,38 @@
+<% layout('layouts/boilerplate') %>
+     <div id="cluster-map" "></div>
+<h1>All Campgrounds</h1>
+
+        <% for (let camp of camps) {%>
+                <div class="card mb-3" mb-3>
+                        <div class="row">
+                                <div class="col-md-4">
+                                        <% if(camp.image.length) { %>
+                                        <img class="img-fluid" alt="" src="<%=camp.image[0].url %>">
+                                        <% }else {%>
+                                        <img src="https://res.cloudinary.com/dpo8txthu/image/upload/v1684616977/YelpCamp/v2miswucjtqkppifxc11.jpg" alt="" class="img-fluid">
+                                        <% }%>
+                                </div>
+                                <div class="col-md-8">
+                                        <div class="card-body">
+                                                <h5 class="card-title"><%= camp.title %></h5>
+                                                <p class="card-text">
+                                                        <%= camp.desc %>
+                                                </p>
+                                                <p class="card-text">
+                                                        <small class="text-muted">
+                                                                <%= camp.location %>
+                                                        </small>
+                                                </p>
+                                                <h3 class="card-title">$<%= camp.price %>
+                                                </h3>
+                                                <a href="/camps/<%=camp._id%>" class="btn btn-primary">View</a>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <% } %>
+<script>
+        		const mapToken = '<%-process.env.MAPBOXTOKEN%>';
+                        const camps = {features: <%- JSON.stringify(camps)%>} 
+</script>
+                <script src="/js/campsMap.js"></script>

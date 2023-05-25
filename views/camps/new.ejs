@@ -1,0 +1,40 @@
+<% layout('layouts/boilerplate') %>
+
+    <div class="row">
+        <h1 class="text-center">New Campground</h1>
+        <div class="col-6 offset-3">
+            <form action="/camps" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" name="camp[title]" id="title" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">location</label>
+                    <input class="form-control" type="text" name="camp[location]" id="location" required>
+                </div>
+                <!-- <input type="file" name="image" id="" multiple> -->
+                <div class="input-group mb-3">
+                    <input type="file" name="image" class="form-control" multiple id="inputGroupFile02">
+                    <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                </div>
+                <!-- <div class="mb-3">
+                    <label class="form-label" for="image">Image URL</label>
+                    <input class="form-control" type="text" name="camp[image]" id="image" required>
+                </div> -->
+                <div class=" mb-3">
+                    <label class="form-label" for="price-label">Price</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="price">$</span>
+                        <input type="text" class="form-control" id="price" placeholder="0" aria-label="Price"
+                            name="camp[price]" aria-describedby="price-label" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="desc">Description</label>
+                    <textarea class="form-control" type="text" name="camp[desc]" id="desc"></textarea>
+                </div>
+
+                <button class="btn btn-success">Add Campground</button>
+            </form>
+        </div>
+    </div>
