@@ -6,7 +6,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node js.js"
   },
-  
   "keywords": [],
   "author": "",
   "license": "ISC",
